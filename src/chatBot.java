@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Random;
+
 
 public class chatBot {
     final static Scanner scanner = new Scanner(System.in); 
@@ -22,30 +24,44 @@ public class chatBot {
 //User repeat name method
     static void repeatName() {
         String name = scanner.nextLine();
-        System.out.println("I'm sorry, I didn't catch that, can you repeat your name again?");
+        System.out.println("I'm sorry, can you repeat your name again?");
         String repeatName= scanner.nextLine();
-        System.out.println("I like your name, " + repeatName + "!");
+        System.out.println("Nice to meet you, " + repeatName + "!");
     }
 
 //Guess user age method
     static void guessAge() {
-        System.out.println("Wow, you look great, let me guess your age.");
-        System.out.println("Enter any number between 5, 18 and 30.");
-        int rem5 = scanner.nextInt();
-        int rem18 = scanner.nextInt();
-        int rem30 = scanner.nextInt();
-        int age = (rem5 * 70 + rem18 * 21 + rem30 * 16) % 106;
-        System.out.println("Are you " + age + "? Wow, you look amazing for your age!");
+            Random rnd = new Random();
+            int age = rnd.nextInt(80);
+            int limit = 5;
+    
+            Scanner scanner = new Scanner(System.in); 
+            System.out.println("Can you guess my age? You will have 5 chances. Good luck!");
+            for(int i = 0; i < limit; i++) {
+                int answer = scanner.nextInt();
+                if(answer == age) {
+                    System.out.println("You guessed it. Good job!");
+                    break;
+                } else if(answer > age){
+                    System.out.println("Younger than that, guess again.");
+                } else {
+                    System.out.println("Older than that, guess again.");
+                }
+            }
+            System.out.println("Good try! I am " + age + " years old.");
     }
 
 //Count to a number method
     static void countNumber() {
-        System.out.println("Enter a number, I want to prove that I can count.");
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+        System.out.println("Let me count for you, Enter a number!");
         int num = scanner.nextInt();
-        for (int i = 0; i <= num; i++) {
-        System.out.printf("%d!\n", i);
+        while(num + 1 > count){
+           System.out.print(count++ + " ");
         }
-    }
+        System.out.println();
+     }
 
 //Test user method
     static void testUser() {   
