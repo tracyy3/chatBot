@@ -39,16 +39,13 @@ public class chatBot {
             System.out.println("Can you guess my age? You will have 5 chances. Good luck!");
             for(int i = 0; i < limit; i++) {
             int answer = scanner.nextInt();
-
             if(answer == age) {
             System.out.println("You guessed it. Good job!");
             break; 
-            } 
-            
+            }            
             else if(answer > age) {
             System.out.println("Younger than that, guess again."); 
             } 
-
             else {
             System.out.println("Older than that, guess again.");
             }
@@ -90,6 +87,6 @@ public class chatBot {
 //Ending
     static void end() { 
         System.out.println("Good job!");
-    }
+        }
     }
 
